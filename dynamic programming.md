@@ -20,8 +20,9 @@
 - Evaluate the value function of states given the policy
 
 ## Principle of Optimality
-A policy $\pi(a|s)$ achieves the optimal value from state s, $v_\pi(s) = v_∗(s)$ $\iff$
-1. For any state $s^′$ reachable from $s$, $\pi$ achieves the optimal value from state $s^′$, $v_\pi(s^′) = v_∗(s^′)$
+A policy $\pi(a|s)$ achieves the optimal value from state s, $v_\pi(s) = v_∗(s)$ 
+$$\iff$$
+For any state $s^′$ reachable from $s$, $\pi$ achieves the optimal value from state $s^′$, $v_\pi(s^′) = v_∗(s^′)$
 
 ### Value Iteration
 - Start from the final target and work backward
@@ -35,7 +36,7 @@ A policy $\pi(a|s)$ achieves the optimal value from state s, $v_\pi(s) = v_∗(s
 | Control    | Bellman Optimality Equation                              | Value Iteration             |
  
 
-## Bellman Equation
+## Bellman Equation for MDP
 
 
 $$
