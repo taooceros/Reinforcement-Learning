@@ -16,4 +16,4 @@ $$v_\pi(s)=E[G_t|S=s]$$
 
 The action-value function $q_\pi(s,a)$ of an MDP is the expected return starting from state s,taking action $a$, and then following policy $\pi$
 
-$$q_\pi(s,a)=E[G_t|S=s, A=a]$$
+$$q_\pi(s,a)=\mathbb{E}[G_t|S=s, A=a]$$
