@@ -10,7 +10,7 @@ $$G_t=R_{t+1}+\gamma R_{t+2}+...=\sum_{k=0}^\infty {\gamma^k R_{t+k+1}}$$
 
 The state-value function $v_\pi(s)$ of an MDP is the expected return starting from state s, and then following policy $\pi$
 
-$$v_\pi(s)=E[G_t|S=s]$$
+$$v_\pi(s)=\mathbb{E}[G_t|S=s]$$
 
 ## Action Value Function
 
