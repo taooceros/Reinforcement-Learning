@@ -24,6 +24,7 @@ A policy $\pi(a|s)$ achieves the optimal value from state s, $v_\pi(s) = v_∗(s
 $$\iff$$
 For any state $s^′$ reachable from $s$, $\pi$ achieves the optimal value from state $s^′$, $v_\pi(s^′) = v_∗(s^′)$
 
+
 ### Value Iteration
 - Start from the final target and work backward
 
