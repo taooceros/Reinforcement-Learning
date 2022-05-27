@@ -1,7 +1,7 @@
 # Reinforcement Learning
 
-## [Dynamic Programming](dynamic%20programming.md)
-1. Bellman Equation
+## [Dynamic Programming](Dynamic%20Programming.md)
+1. [Planning](Dynamic%20Programming.md#Planning%20in%20MDP)
 
 ## Model Free Learning
 
