@@ -8,8 +8,8 @@
   - [Temporal-Difference Learning](#temporal-difference-learning)
     - [N-Step TD](#n-step-td)
     - [$\lambda$ return](#lambda-return)
-    - [Forward-View TD λ](#forward-view-td-λ)
-    - [Backward-View TD λ](#backward-view-td-λ)
+    - [Forward-View TD(λ)](#forward-view-tdλ)
+    - [Backward-View TD(λ)](#backward-view-tdλ)
       - [Eligibility Trace](#eligibility-trace)
     - [Theorem](#theorem)
   - [Comparison of Update between MC & TD](#comparison-of-update-between-mc--td)
@@ -19,7 +19,7 @@
   - [Online Update vs. Offline Update](#online-update-vs-offline-update)
     - [Offline Update](#offline-update)
     - [Online Update](#online-update)
-      - [Exact Online TD-λ](#exact-online-td-λ)
+      - [Exact Online TD(λ)](#exact-online-tdλ)
 
 
 
@@ -78,11 +78,11 @@ $=$ here indicates equivalence in total update at end of episode
 
 - $G_t^\lambda=(1-\lambda)\sum_{n=1}^{\infty} {\lambda^{n-1}}G_t^(n)$
 
-### Forward-View TD λ
+### Forward-View TD(λ)
 
 - $V(S_t) \mathrel{{+}{=}} \alpha(G_t^\lambda-V(S_t))$ 
 
-### Backward-View TD λ
+### Backward-View TD(λ)
 
 - Forward view provides theory
 - Backward view provides mechanism
@@ -156,7 +156,7 @@ $$
 
 - Forward & Backward TD($\lambda$) are slightly different
 
-#### Exact Online TD-λ
+#### Exact Online TD(λ)
 
 - truncated $\lambda$-return algorithm (truncated till the current time step instead of the end of the episode)
 - Modify previous $\lambda$-return of the previous steps 
