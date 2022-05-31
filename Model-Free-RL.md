@@ -139,7 +139,6 @@ $$
         &=\alpha(R_{t+1}+V(S_{t+1})-V(S_t))\\
         &=(1-\alpha)V_t(S)+\alpha(R+V(s'))\\
         &=(1-\alpha)^tV_1(s)+\sum_{i=1}^t \alpha(1-\alpha )^{t-1}(R+V(s'))
-    
 \end{aligned}
 $$
 
