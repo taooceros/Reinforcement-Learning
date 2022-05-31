@@ -76,7 +76,7 @@ $=$ here indicates equivalence in total update at end of episode
 
 ### $\lambda$ return
 
-- $G_t^\lambda=(1-\lambda)\sum_{n=1}^{\infty} {\lambda^{n-1}}G_t^(n)$
+- $$G_t^\lambda=(1-\lambda)\sum_{n=1}^{\infty} {\lambda^{n-1}}G_t^(n)$$
 
 ### Forward-View TD $\lambda$ 
 
