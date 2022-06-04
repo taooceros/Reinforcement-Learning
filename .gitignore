@@ -1,2 +1,7 @@
 *.pdf
 .vscode/
+
+.fake
+obj/
+bin/
+.config/
