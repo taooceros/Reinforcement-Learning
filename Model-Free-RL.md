@@ -5,6 +5,8 @@
     - [Monte-Carlo Policy Evaluation](#monte-carlo-policy-evaluation)
       - [First-Visit Monte-Carlo Policy Evaluation](#first-visit-monte-carlo-policy-evaluation)
       - [Every-Visit Monte-Carlo Policy Evaluation](#every-visit-monte-carlo-policy-evaluation)
+    - [Policy Improvement](#policy-improvement)
+    - [GILE (Greedy in the Limit with Infinite Exploration)](#gile-greedy-in-the-limit-with-infinite-exploration)
   - [Temporal-Difference Learning](#temporal-difference-learning)
     - [N-Step TD](#n-step-td)
     - [$\lambda$ return](#lambda-return)
@@ -20,6 +22,13 @@
     - [Offline Update](#offline-update)
     - [Online Update](#online-update)
       - [Exact Online TD(λ)](#exact-online-tdλ)
+    - [Sarsa](#sarsa)
+    - [Convergence](#convergence)
+    - [Sarsa(λ)](#sarsaλ)
+      - [Backward View Sarsa(λ)](#backward-view-sarsaλ)
+  - [Off-Policy Learning](#off-policy-learning)
+    - [Usage](#usage)
+    - [Importance Sampling](#importance-sampling)
 
 
 
@@ -58,6 +67,26 @@ $=$ here indicates equivalence in total update at end of episode
 - $V(S_t) \mathrel{{+}{=}} \frac{1}{N(S_t)}(G_t-V(S_t))$
 - $V(S_t) \mathrel{{+}{=}} \alpha(G_t-V(S_t))$
 
+### Policy Improvement
+
+- $\epsilon-\text{greedy}$
+- with probability $\epsilon$ choose action at random
+
+$$
+  \pi(a|s)=
+    \begin{cases}
+      \epsilon/m+1-\epsilon & a^*=\argmax_{a\in A}Q(s,a) \\
+      \epsilon/m & \text{otherwise}
+    \end{cases}
+$$
+
+### GILE (Greedy in the Limit with Infinite Exploration)
+
+- All state-action pairs are explored infinitely many times
+- The policy converges on a greedy policy
+- For example, $\epsilon$-greedy is GLIE if $\epsilon$ reduces to zero at $\epsilon_k=\frac{1}{k}$k
+
+**GLIE Monte-Carlo control converges to the optimal action-value function**
 
 ## Temporal-Difference Learning
 
@@ -161,3 +190,59 @@ $$
 - truncated $\lambda$-return algorithm (truncated till the current time step instead of the end of the episode)
 - Modify previous $\lambda$-return of the previous steps 
 - [True Online TD(λ)](http://proceedings.mlr.press/v32/seijen14.pdf)
+
+
+
+### Sarsa
+
+- Apply TD to $Q(S,A)$
+- Use $\epsilon$-greedy policy improvement
+- Updates every time step (online)
+
+$$ Q_(S,A) \leftarrow Q(S,A)+\alpha (R+\lambda Q(S',A')-Q(S,A)) $$
+
+### Convergence
+
+- GILE sequence of policies $\pi_t(a|s)$
+- Robbins-Monro sequence of step-sizes $\alpha_t$
+  - $$ \sum_{t=1}^\infty a_t=\infty\\
+       \sum_{t=1}^\infty a_t^2<\infty
+    $$
+
+### Sarsa(λ)
+
+- $q^\lambda$ returns
+- **weights**: $(1-\lambda )\lambda ^{n-1}$ 
+
+#### Backward View Sarsa(λ)
+
+- $E_t(s,a)=\gamma \lambda E_{t-1}(s,a) + \mathbb{1}(S_t=s,A_t=a)$
+- $\delta_t=R_{t+1}+\gamma Q(S_{t+1},A_{t+1})-Q(S_t,A_t)$ 
+- $Q_(s,a)+=\alpha \delta E_t(s,a)$ 
+
+![](images/Model-Free-RL-2022-06-05-13-05-43.png)
+
+## Off-Policy Learning
+
+- Evaluate target policy $π(a|s)$ to compute $vπ(s)$ or $qπ(s, a)$
+- Following Behaviorial Policy $\mu(a|s)$
+
+### Usage
+
+- Learning from human policy
+- Re-use previous experience from old policy
+- Learn about *optimal* policy while following exploratory policy
+- Learn about *multiple* policies while following one policy
+
+### Importance Sampling
+
+- Estimate the expectation of a difference distribution
+
+$$
+\begin{aligned}
+ \mathbb{E}_{X\sim P}[f(X)]&=\sum P(X)f(X) \\
+    &=\sum Q(X)\frac{Q(X)}{P(X)}f(X)\\
+    &=\mathbb{E}
+  
+\end{aligned}
+$$
